@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table">
+    <thead class="table-dark">
+    <tr class="text-center">
+        <th>번호</th>
+        <th style="width: 50%">제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+        <th>추천수</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="question : ${questionList}" class="text-center">
+        <td th:text="${question.id}"></td>
+        <td class="text-start">
+            <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.title}"></a>
+        </td>
+        <td><span th:if="${question.writer != null}" th:text="${question.writer}"></span></td>
+        <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+        <td th:text="${question.views}"></td>
+        <td th:text="${question.likes}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
+<script src="/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h5 class="my-3 border-bottom pb-2">게시물 수정</h5>
+<form th:action="@{/question/modify/{id}(id=${question.id})}" method="post">
+    <div class="mb-3">
+        <label for="title" class="form-label">제목</label>
+        <input type="text" name="title" id="title" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">내용</label>
+        <textarea class="form-control" name="content" id="content" rows="10"></textarea>
+    </div>
+    <input type="submit" value="수정하기" class="btn btn-primary my-2">
+</form>
+
+<script src="/bootstrap.min.js"></script>
+</body>
+</html>
